@@ -1,0 +1,14 @@
+<! DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Application</title>
+</head>
+<body>
+<h1>Photo Uploader</h1>
+<form id="upload-form" action="{{url_for('upload')}}" method="POST" enctype="multipart/form-data">
+      <input type="file" name="photo" accept="image/*" multiple>
+      <input type="submit" value="UPLOAD">
+</form>
+</body>
+</html>
