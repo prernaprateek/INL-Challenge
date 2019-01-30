@@ -69,7 +69,7 @@ def google_vision_processor(file):
     for label in labels:
         print(label['description'], label['score'])
         if (label['description'] == 'Cat'):
-            prediction = "Score that Cat is present in this image is {}%.".format(label['score']*100)
+            prediction = "Chance that Cat is present in this image is {}%.".format(label['score']*100)
             break
         else:
             prediction = "No Cat is present"
