@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Detector Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<p>
-  Processing Done!!
-</p>
-<b>
- {{result}}
-</b>
+<nav>
+    <p>
+    <h1>
+        Processing Done!!
+    </h1>
+    </p>
+    {{result}}
+    <p>
+</nav>
+
+<a href="/">Click Here to Go Back</a>
 </body>
 </html>
