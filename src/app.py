@@ -14,7 +14,7 @@ CREDENTIALS_FILE = "credentials.json"
 
 @app.route("/")
 def index():
-    return flask.render_template("upload.html")
+    return flask.render_template("index.html")
 
 @app.route("/upload", methods=['POST'])
 def upload():
@@ -24,13 +24,18 @@ def upload():
     if not os.path.isdir(target):
         os.mkdir(target)
 
-    file = flask.request.files['photo']
-    destination = "/".join([target, file.filename])
-    file.save(destination)
+    try:
+        file = flask.request.files['photo']
+        destination = "/".join([target, file.filename])
+        file.save(destination)
 
-    result = google_vision_processor(file.filename)
+        result = google_vision_processor(file.filename)
 
-    return flask.render_template("complete.html", result=result )
+        return flask.render_template("complete.html", result=result)
+
+    except KeyError:
+        return flask.render_template("incomplete.html")
+
 
 def google_vision_processor(file):
     # Connect to the Google Cloud-ML Service
@@ -67,7 +72,6 @@ def google_vision_processor(file):
     labels = response['responses'][0]['labelAnnotations']
 
     for label in labels:
-        print(label['description'], label['score'])
         if (label['description'] == 'Cat'):
             prediction = "Chance that Cat is present in this image is {}%.".format(label['score']*100)
             break
