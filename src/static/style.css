@@ -1,29 +1,22 @@
 html {
   font-family: sans-serif;
-  background: #eee;
-  padding: 2rem;
+  color: white
+  padding: 1rem;
 }
 
 body {
-  max-width: 960px;
-  margin: 0 auto;
-  background: white;
+  background-image: url('index.jpg');
+  background-repeat:no-repeat;
+  background-position: right top;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
   font-family: serif;
-  color: #377ba8;
+  color: black;
   margin: 2rem 0;
 }
 
 a {
-  color: #377ba8;
-}
-
-nav {
-  background: gray;
-  display: flex;
-  align-items: center;
-  padding: 0 0.5rem;
+  color: red;
 }
 
