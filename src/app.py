@@ -5,7 +5,7 @@ import flask
 import googleapiclient.discovery
 from oauth2client.client import GoogleCredentials
 
-app = flask.Flask(__name__)
+app = flask.Flask(__name__, static_url_path='/static')
 
 # Settings
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))

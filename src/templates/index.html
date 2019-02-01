@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Upload Application</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="/static/style.css?version=26">
 </head>
 <body>
-<nav>
-    <h1>Cat Identifier</h1>
-    <p>
-        This Application will Identify if Cat is present in Photo
-    </p>
-    Click on Browse to upload Photo from your System
-    <p>
-</nav>
+<h1>Cat Identifier</h1>
+<h2>
+    This <b>application</b> will identify if a <b>cat</b> is present in the <b>photo</b>.
+</h2>
+<h3>
+    Click on Browse to upload Photo from a local directory
+</h3>
+
 <section>
     <form id="upload-form" action="{{url_for('upload')}}" method="POST" enctype="multipart/form-data">
         <input type="file" name="photo" accept="image/*" multiple>
