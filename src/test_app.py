@@ -10,7 +10,10 @@ def client(request):
     test_client = app.test_client()
 
     def teardown():       # databases and resources have to be freed at the end. Only "image" directory needs to be wiped off
-        shutil.rmtree(os.path.join(APP_ROOT, "images/"))
+        try:
+            shutil.rmtree(os.path.join(APP_ROOT, "images/"))
+        except:
+            pass
 
     request.addfinalizer(teardown)
     return test_client
